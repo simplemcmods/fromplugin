@@ -1,9 +1,9 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'com.sysnote8'
-version = '0.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -45,5 +45,18 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = "https://maven.pkg.github.com/simplemcmods/fromplugin"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
