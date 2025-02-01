@@ -1,0 +1,6 @@
+name: fromplugin
+description: This plugin has no modules.
+authors: [sysnote8main]
+version: '${version}'
+main: com.sysnote8.fromplugin.FromPlugin
+api-version: '1.16'
